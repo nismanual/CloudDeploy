@@ -24,7 +24,4 @@ def health():
 
 @app.get("/version")
 def version():
-    return {
-        "version": app.version,
-        "service": "clouddeploy-api",
-    }
+    return {"version": "0.1.1", "service": "clouddeploy-api"}
