@@ -4,7 +4,7 @@ from fastapi import FastAPI
 app = FastAPI(
     title="CloudDeploy API",
     description="API for the CloudDeploy CI/CD deployment platform",
-    version="0.1.0",
+    version="0.1.2",
 )
 
 
@@ -24,4 +24,4 @@ def health():
 
 @app.get("/version")
 def version():
-    return {"version": "0.1.1", "service": "clouddeploy-api"}
+    return {"version": "0.1.2", "service": "clouddeploy-api"}
