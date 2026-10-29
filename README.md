@@ -6,7 +6,24 @@ The project demonstrates automated testing, Docker image publishing, cloud deplo
 
 ## Architecture
 
-Developer Push → GitHub Actions → Automated Tests → Docker Image Build → GitHub Container Registry (GHCR) → AWS EC2 → Running FastAPI Application
+CloudDeploy uses GitHub Actions for continuous integration and Docker image publishing. An AWS EC2 instance periodically checks GitHub Container Registry (GHCR) for updated images and deploys them.
+
+```mermaid
+flowchart TD
+    A["Developer pushes code"] --> B["GitHub Repository"]
+    B --> C["GitHub Actions"]
+    C --> D["Run automated tests"]
+    D --> E["Build Docker image"]
+    E --> F["Publish image to GHCR"]
+    F --> G["AWS EC2 systemd timer"]
+    G --> H["Check for newer image"]
+    H --> I["Update Docker container"]
+    I --> J["FastAPI application"]
+    J --> K["Public REST API"]
+    J --> L["Health and version endpoints"]
+```
+
+**Deployment model:** GitHub Actions builds and publishes the image. The EC2 instance checks for updates periodically; it does not receive a direct SSH deployment trigger from GitHub Actions.
 
 ## Tech Stack
 
