@@ -148,6 +148,24 @@ CloudDeploy/
 └── README.md
 ```
 
+## Project Evidence
+
+The following links demonstrate the CI/CD workflow, container image publishing, and live deployment.
+
+- **CI/CD Pipeline:** [GitHub Actions](https://github.com/nismanual/CloudDeploy/actions)
+- **Docker Image Registry:** [GitHub Container Registry (GHCR)](https://github.com/nismanual/CloudDeploy/pkgs/container/clouddeploy)
+- **Live Application:** [CloudDeploy API](http://43.204.232.40/)
+- **Health Check:** [API Health Endpoint](http://43.204.232.40/health)
+- **API Documentation:** [Interactive Swagger UI](http://43.204.232.40/docs)
+
+### Verified Capabilities
+
+- Automated application testing through GitHub Actions
+- Docker image build and publishing to GHCR
+- Containerized deployment on AWS EC2
+- Periodic image updates using a systemd timer
+- Health and version endpoints for deployment verification
+
 ## Future Improvements
 
 - HTTPS with a domain and TLS certificate
